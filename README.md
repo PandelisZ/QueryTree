@@ -1,10 +1,11 @@
 [![CircleCI](https://circleci.com/gh/d4software/QueryTree.svg?style=svg)](https://circleci.com/gh/d4software/QueryTree)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/d4software/QueryTree?svg=true)](https://ci.appveyor.com/api/projects/status/github/d4software/QueryTree?svg=true)
+[![Docker](https://img.shields.io/docker/pulls/d4software/querytree.svg?style=flat)](https://hub.docker.com/r/d4software/querytree/)
 
-# QueryTree
+# ![qt](.github/querytree.png) QueryTree
 
-QueryTree is an ad-hoc reporting tool that works with any Microsoft 
-SQL Server, PostgreSQL or MySQL database. It allows users to query 
+QueryTree is an ad-hoc reporting tool that works with any Microsoft
+SQL Server, PostgreSQL or MySQL database. It allows users to query
 databases, build reports and schedule those reports to email distribution
 lists, without needing to write any code.
 
@@ -12,23 +13,23 @@ For more information see the [QueryTree website](http://querytreeapp.com)
 
 ## Features
 
-QueryTree can connect to MySQL and PostgreSQL databases using SSH tunnels, 
+QueryTree can connect to MySQL and PostgreSQL databases using SSH tunnels,
 secured with passwords or key files.
 
 Supports customization of the logo image, system name and CSS used
 within the app.
 
 Can use either Sqlite or Microsoft SQL Server database for it's own user
-and reports data storage. 
+and reports data storage.
 
-Database and SSH passwords are stored in its database in encryped form, 
+Database and SSH passwords are stored in its database in encryped form,
 using AES encryption. Users may provide their own key file, or let the
 system generate one on first run. Keys can be shared between mutliple
 web servers in a load balancing scenario.
 
-Users may choose to build their own plugins to store database/SSH 
-passwords in an external key vault. This is achieved by implementing 
-a .NET interface and registering the class in the appSettings.config 
+Users may choose to build their own plugins to store database/SSH
+passwords in an external key vault. This is achieved by implementing
+a .NET interface and registering the class in the appSettings.config
 file. See [Building a password manager](/docs/password-manager.md)
 for more information.
 
@@ -42,6 +43,10 @@ for more information.
 - [Running the Tests](#running-the-tests)
 - [Running with Docker](/docs/docker.md)
 
+### Try on heroku
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+
 ### Running from Source
 
 To run QueryTree from it's source code, you will need to install the .NET Core SDK. You can download
@@ -54,11 +59,11 @@ Once the .NET Core SDK is installed, follow these steps:
 2. At the command prompt, cd into the folder, then into the "Web" folder.
 
 3. Type:
- 
+
 ```sh
 dotnet run
 ```
- 
+
 4. Visit [http://localhost:5000/](http://localhost:5000/) in your browser. You should see the QueryTree application. *Dotnet may decide to run it on a different port if 5000 is not available, check your terminal output.
 
 If you would like to run QueryTree with your own local development settings, you can add a Web/usersettings.json file containing a modified copy of appsettings.json. Settings in this file will override appsettings.json. However, this file will be ignored by git.
@@ -147,7 +152,7 @@ who might be able to do it for you.
 
 ![The QueryTree onboard page](http://querytreeapp.com/img/screenshots/querytree-onboarding.png "The QueryTree onboarding page")
 
-4. Assuming you have a database that you can connect to, select the "+ Connect Database" 
+4. Assuming you have a database that you can connect to, select the "+ Connect Database"
 option. You will see the Create Connection page:
 
 ![The QueryTree create connection page](http://querytreeapp.com/img/screenshots/querytree-create-connection.png "The QueryTree create connection page")
@@ -182,9 +187,9 @@ The filter panel will open and you will be prompted to add one or more Filters.
 ![The QueryTree report filter panel](http://querytreeapp.com/img/screenshots/querytree-report-filter.png "The QueryTree report filter panel")
 
 9. Once you are happy with the filters, you have the option to summarize the data
-that is being shown in the results panel. Summerizing the data can mean totaling, 
+that is being shown in the results panel. Summerizing the data can mean totaling,
 averaging, counting or finding the minimum/maximum values, for one or more columns.
-You can do this for all the data, or for different groups of values. For example, 
+You can do this for all the data, or for different groups of values. For example,
 you could find the average value of the orders, for each country.
 
 ![The QueryTree report summerize panel](http://querytreeapp.com/img/screenshots/querytree-report-summerize.png "The QueryTree report summerize panel")
