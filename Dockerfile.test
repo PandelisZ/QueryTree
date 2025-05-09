@@ -1,0 +1,15 @@
+FROM microsoft/aspnetcore-build:2.0-stretch
+
+WORKDIR /src
+
+# Copy everything
+COPY . .
+
+# Install less globally (needed for build/test)
+RUN npm install less -g
+
+# Restore .NET dependencies
+RUN dotnet restore
+
+# Run the tests
+CMD ["dotnet", "test", "./Tests/Tests.csproj", "-v", "n"]
